@@ -11,7 +11,7 @@ Aplicación web que comprime y descomprime archivos de texto con el **algoritmo 
 |---|---|---|
 | _Johan Daniel Gutierrez Nava_ | Scrum Master | _Souls-Nao_ |
 | _Cuauhtémoc Soria Hernández_ | Desarrollo | _IlSorialI_ |
-| _(nombre)_ | Desarrollo | _(@usuario)_ |
+| _Oswaldo Daniel Castañeda Hernández_ | Desarrollo | _OswalSnow_ |
 | _(nombre)_ | Desarrollo | _(@usuario)_ |
 
 ## Enlaces
