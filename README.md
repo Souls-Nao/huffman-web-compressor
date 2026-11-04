@@ -10,9 +10,9 @@ Aplicación web que comprime y descomprime archivos de texto con el **algoritmo 
 | Integrante | Rol Scrum | Usuario de GitHub |
 |---|---|---|
 | _Johan Daniel Gutierrez Nava_ | Scrum Master | _Souls-Nao_ |
-| _Cuauhtémoc Soria Hernández_ | Desarrollo | _IlSorialI_ |
 | _Oswaldo Daniel Castañeda Hernández_ | Desarrollo | _OswalSnow_ |
-| _(nombre)_ | Desarrollo | _(@usuario)_ |
+| _Cuauhtémoc Soria Hernández_ | Desarrollo | _IlSorialI_ |
+| _Omar Alejandro Ruvalcaba Velazquez_ | Desarrollo | _omarruvalcaba0282-eng_ |
 
 ## Enlaces
 - Aplicación: _(se agrega al desplegar)_
