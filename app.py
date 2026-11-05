@@ -9,13 +9,30 @@ Cada sección de la página es una función. La parte de abajo del archivo
 decide el orden en que se muestran.
 """
 
+from pathlib import Path
+
 import streamlit as st
 
 from huffman.arbol import construir_arbol
 from huffman.codigos import generar_codigos
-from huffman.compresor import tamano_legible
+from huffman.compresor import comprimir, metricas, tamano_legible
+from huffman.formato import EXTENSION
 from huffman.frecuencias import contar_frecuencias
 from huffman.visual import tabla
+
+
+# ---------- Utilidades de la interfaz ----------
+
+def mostrar_metricas(m: dict):
+    """Tarjetas con las métricas de compresión."""
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Original", tamano_legible(m["original"]))
+    c2.metric("Comprimido", tamano_legible(m["comprimido"]))
+    c3.metric("Ahorro", tamano_legible(m["ahorro"]))
+    c4, c5, c6 = st.columns(3)
+    c4.metric("Reducción", f"{m['reduccion']:.2f} %")
+    c5.metric("Razón de compresión", f"{m['razon']:.2f} : 1")
+    c6.metric("Símbolos diferentes", m["simbolos"])
 
 
 # ---------- Pestaña COMPRIMIR ----------
@@ -45,6 +62,21 @@ def seccion_huffman(frecuencias: dict):
     st.dataframe(tabla(frecuencias, codigos), hide_index=True, height=300)
 
 
+def seccion_comprimir(nombre: str, datos: bytes, frecuencias: dict):
+    """4. Comprimir y medir: genera el .hfa, muestra métricas y permite descargarlo."""
+    st.header("4. Comprimir y medir")
+    clave = (nombre, datos)  # identifica la entrada actual
+    if st.button("Comprimir", type="primary"):
+        st.session_state["comprimido"] = (clave, comprimir(datos, nombre))
+    guardado = st.session_state.get("comprimido")
+    if not guardado or guardado[0] != clave:
+        return
+    hfa = guardado[1]
+    mostrar_metricas(metricas(len(datos), len(hfa), len(frecuencias)))
+    st.download_button(f"Descargar {Path(nombre).stem}{EXTENSION}", hfa,
+                       file_name=Path(nombre).stem + EXTENSION, mime="application/octet-stream")
+
+
 # ---------- Página ----------
 
 st.set_page_config(page_title="Huffman Web Compressor", layout="wide")
@@ -55,10 +87,11 @@ tab_comprimir, tab_inspector = st.tabs(["Comprimir", "Inspector / Descomprimir"]
 with tab_comprimir:
     entrada = seccion_entrada()
     if entrada:
-        _, datos = entrada
+        nombre, datos = entrada
         frecuencias = seccion_analisis(datos)
         if frecuencias:
             seccion_huffman(frecuencias)
+            seccion_comprimir(nombre, datos, frecuencias)
         else:
             st.warning("El archivo está vacío.")
 with tab_inspector:
