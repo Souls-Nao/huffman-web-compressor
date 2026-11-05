@@ -15,7 +15,7 @@ Aplicación web que comprime y descomprime archivos de texto con el **algoritmo 
 | _Omar Alejandro Ruvalcaba Velazquez_ | Desarrollo | _omarruvalcaba0282-eng_ |
 
 ## Enlaces
-- Aplicación: _(se agrega al desplegar)_
+- Aplicación: https://huffman-brigada-binaria.streamlit.app
 - Tablero GitHub Projects: https://github.com/users/Souls-Nao/projects/6
 
 ## Documentación
