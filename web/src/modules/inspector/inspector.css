@@ -1,1 +1,17 @@
-/* STUB del paquete 0: estilos de inspector (los reemplaza su dueno). */
+.inspector__fuente { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .75rem; }
+.inspector h3 { margin-top: 1.25rem; }
+table.meta { border: 1px solid var(--linea); border-radius: var(--radio-sm); overflow: hidden; }
+.meta th { width: 14rem; background: var(--superficie-2); position: static; text-transform: none; font-size: .9rem; letter-spacing: 0; }
+.meta td { white-space: normal; word-break: break-all; }
+.hash { font-size: .78rem; }
+.bits-barra { display: inline-block; vertical-align: middle; width: 56px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--acento-2) var(--w), var(--linea) var(--w)); }
+details { margin-top: 1.25rem; }
+summary { cursor: pointer; font-weight: 700; padding: .4rem 0; }
+.bytes { display: flex; flex-wrap: wrap; gap: .4rem; }
+.byte { display: flex; flex-direction: column; align-items: center; padding: .3rem .5rem; border: 1px solid var(--linea); border-radius: var(--radio-sm); background: var(--superficie-2); }
+.byte small { color: var(--tinta-suave); font-family: var(--mono); }
+.palabras { display: flex; flex-wrap: wrap; gap: .35rem; }
+.palabra { display: inline-flex; flex-direction: column; align-items: center; padding: .25rem .5rem; border-radius: var(--radio-sm); background: var(--acento-suave); border: 1px solid var(--acento); }
+.palabra small { font: 700 .75rem var(--mono); color: var(--tinta-suave); }
+.descomprimir { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--linea); }
+.descomprimir textarea { margin: .5rem 0; }
