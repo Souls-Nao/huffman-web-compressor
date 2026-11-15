@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huffman Web Compressor</title>
+  <meta name="description" content="Compresor de texto con el algoritmo voraz de Huffman y formato propio .hfa">
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/modules/input/input.css">
+  <link rel="stylesheet" href="src/modules/steps/steps.css">
+  <link rel="stylesheet" href="src/modules/tree/tree.css">
+  <link rel="stylesheet" href="src/modules/compress/compress.css">
+  <link rel="stylesheet" href="src/modules/inspector/inspector.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor">
+      <h1>Huffman Web Compressor</h1>
+      <p class="cabecera__sub">Compresión voraz de texto · formato propio <code>.hfa</code></p>
+      <ol class="flujo" id="flujo" aria-label="Flujo de la aplicación">
+        <li class="flujo__paso" data-paso="entrada">Subir / buscar</li>
+        <li class="flujo__paso" data-paso="analizar">Analizar</li>
+        <li class="flujo__paso" data-paso="huffman">Construir Huffman</li>
+        <li class="flujo__paso" data-paso="comprimir">Comprimir</li>
+        <li class="flujo__paso" data-paso="inspeccionar">Inspeccionar</li>
+        <li class="flujo__paso" data-paso="descomprimir">Descomprimir</li>
+        <li class="flujo__paso" data-paso="verificar">Verificar</li>
+      </ol>
+    </div>
+  </header>
+  <main class="contenedor">
+    <section class="seccion" id="mod-input" aria-labelledby="t-input"></section>
+    <section class="seccion" id="mod-steps" aria-labelledby="t-steps"></section>
+    <section class="seccion" id="mod-tree" aria-labelledby="t-tree"></section>
+    <section class="seccion" id="mod-compress" aria-labelledby="t-compress"></section>
+    <section class="seccion" id="mod-inspector" aria-labelledby="t-inspector"></section>
+  </main>
+  <footer class="pie contenedor">Análisis de Algoritmos · 2026B · Huffman implementado por el equipo, sin bibliotecas de compresión.</footer>
+  <noscript>Esta aplicación necesita JavaScript.</noscript>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* Estructura de la pagina: cabecera, flujo, secciones. */
+.contenedor { width: min(1180px, 100% - 2rem); margin-inline: auto; }
+.cabecera { background: linear-gradient(135deg, #312e81, #4f46e5 55%, #0d9488); color: #fff; padding: 1.5rem 0 1.1rem; }
+.cabecera h1 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0; }
+.cabecera__sub { margin: .15rem 0 1rem; opacity: .85; }
+.cabecera code { background: rgb(255 255 255 / 18%); padding: .05rem .4rem; border-radius: 6px; }
+.flujo { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; counter-reset: paso; }
+.flujo__paso { counter-increment: paso; font-size: .8rem; font-weight: 600; padding: .3rem .7rem .3rem .5rem; border-radius: 999px; background: rgb(255 255 255 / 14%); display: flex; align-items: center; gap: .4rem; }
+.flujo__paso::before { content: counter(paso); display: grid; place-items: center; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: rgb(255 255 255 / 25%); font-size: .75rem; }
+.flujo__paso--hecho { background: rgb(255 255 255 / 92%); color: #14532d; }
+.flujo__paso--hecho::before { content: "✓"; background: #bbf7d0; }
+.flujo__paso--actual { outline: 2px solid #fff; outline-offset: 1px; }
+main { padding: 1.5rem 0 1rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+.seccion:empty { display: none; }
+.seccion > .encabezado-seccion { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .75rem; }
+.encabezado-seccion .numero { display: grid; place-items: center; min-width: 2rem; height: 2rem; border-radius: 50%; background: var(--acento); color: #fff; font-weight: 700; font-size: .95rem; }
+.pie { padding: 1rem 0 2rem; color: var(--tinta-suave); font-size: .85rem; }
+.rejilla-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 1rem; align-items: start; }
+.rejilla-2 > *, .tarjeta { min-width: 0; }
