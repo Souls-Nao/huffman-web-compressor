@@ -1,1 +1,21 @@
-/* STUB del paquete 0: estilos de steps (los reemplaza su dueno). */
+.paso__controles { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; margin: .5rem 0; }
+.paso__controles input[type="range"] { flex: 1 1 200px; accent-color: var(--acento); }
+.paso__contador { font: 600 .9rem var(--mono); min-width: 5ch; text-align: center; }
+.paso__texto { padding: .6rem .8rem; border-left: 4px solid var(--acento); background: var(--acento-suave); border-radius: 0 var(--radio-sm) var(--radio-sm) 0; min-height: 3rem; }
+.colas { display: grid; gap: .8rem; margin: 1rem 0; }
+.cola__titulo { font-weight: 600; margin-bottom: .3rem; }
+.cola__lista { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; margin: 0 0 .25rem; }
+.ficha { display: inline-flex; flex-direction: column; align-items: center; min-width: 3.2rem; padding: .3rem .6rem; border-radius: var(--radio-sm); border: 2px solid var(--linea); background: var(--superficie-2); font: 700 .95rem var(--mono); transition: transform .25s, border-color .25s, background .25s; }
+.ficha small { font: 600 .65rem var(--fuente); color: var(--tinta-suave); }
+.ficha--hoja { background: var(--acento-suave); }
+.ficha--izquierdo, .ficha--derecho { border-color: var(--bit-1); background: var(--aviso-fondo); transform: translateY(-3px); }
+.ficha--nuevo { border-color: var(--ok); background: var(--ok-fondo); transform: scale(1.08); }
+.ficha--mas { border-style: dashed; color: var(--tinta-suave); }
+.bosque { overflow: auto; border: 1px solid var(--linea); border-radius: var(--radio-sm); padding: .5rem; max-height: 340px; background: var(--superficie); }
+.bosque__arista { stroke: var(--tinta-suave); stroke-width: 1.5; opacity: .6; }
+.bosque__arista--nuevo { stroke: var(--ok); stroke-width: 3; opacity: 1; }
+.bnodo circle { fill: var(--superficie-2); stroke: var(--tinta-suave); stroke-width: 1.5; }
+.bnodo--hoja circle { fill: var(--acento-suave); stroke: var(--acento); }
+.bnodo--nuevo circle { fill: var(--ok-fondo); stroke: var(--ok); stroke-width: 2.5; }
+.bnodo text { font: 700 10px var(--mono); text-anchor: middle; fill: var(--tinta); }
+.bnodo__f { font: 600 7px var(--fuente) !important; fill: var(--tinta-suave) !important; }
