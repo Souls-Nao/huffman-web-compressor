@@ -1,0 +1,13 @@
+{
+  "name": "huffman-web-compressor-web",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compresor Huffman web (JS + CSS modular). Formato propio .hfa",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node proxy/dev-server.mjs",
+    "test": "node --test",
+    "evidencias": "node scripts/evidencias.mjs"
+  }
+}
