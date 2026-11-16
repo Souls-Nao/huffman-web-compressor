@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Search Results</title>
+  <entry>
+    <title>Search Results for quijote</title>
+    <id>https://www.gutenberg.org/ebooks/search.opds/?query=quijote</id>
+    <link type="application/atom+xml" rel="self" href="/ebooks/search.opds/?query=quijote"/>
+  </entry>
+  <entry>
+    <updated>2024-01-01T00:00:00Z</updated>
+    <title>Don Quijote</title>
+    <content type="text">Cervantes Saavedra, Miguel de</content>
+    <id>https://www.gutenberg.org/ebooks/2000.opds</id>
+    <link type="application/atom+xml" rel="subsection" href="/ebooks/2000.opds"/>
+  </entry>
+  <entry>
+    <title>Tom &amp; Jerry: &quot;Cuentos&quot; &#233;picos</title>
+    <content type="text">Autor &lt;An&#243;nimo&gt;</content>
+    <id>https://www.gutenberg.org/ebooks/17989.opds</id>
+  </entry>
+  <entry>
+    <title>Autor sin libro</title>
+    <link rel="subsection" href="/ebooks/author/12"/>
+  </entry>
+  <entry>
+    <title>Don Quijote (repetido)</title>
+    <id>https://www.gutenberg.org/ebooks/2000.opds</id>
+  </entry>
+</feed>
