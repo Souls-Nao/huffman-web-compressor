@@ -1,1 +1,5 @@
-/* STUB del paquete 0: estilos de compress (los reemplaza su dueno). */
+.comparacion { display: grid; gap: .35rem; margin: .5rem 0 1rem; }
+.comparacion__barra { padding: .35rem .7rem; border-radius: var(--radio-sm); color: #fff; font-weight: 600; font-size: .85rem; white-space: nowrap; }
+.comparacion__barra--original { background: var(--tinta-suave); width: 100%; }
+.comparacion__barra--comprimido { background: var(--acento-2); min-width: 4.5rem; transition: width .5s ease; }
+.acciones { display: flex; flex-wrap: wrap; gap: .6rem; }
