@@ -1,1 +1,31 @@
-/* STUB del paquete 0: estilos de tree (los reemplaza su dueno). */
+.arbol__rejilla { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+.selector { display: flex; align-items: center; gap: .5rem; margin-bottom: .75rem; font-weight: 600; flex-wrap: wrap; }
+.arbol__controles { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .6rem; }
+.camino { min-height: 3.2rem; padding: .6rem .8rem; border-radius: var(--radio-sm); background: var(--superficie-2); margin-bottom: .6rem; font-size: 1.05rem; }
+.arbol, .arbol__lienzo { min-width: 0; }
+.arbol__lienzo { position: relative; border: 1px solid var(--linea); border-radius: var(--radio-sm); background: var(--superficie); overflow: hidden; height: 440px; }
+.arbol__svg { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; user-select: none; }
+.arbol__svg.arbol--arrastrando { cursor: grabbing; }
+.arista line { stroke: var(--linea); stroke-width: 2; transition: stroke .2s, stroke-width .2s, opacity .2s; }
+.arista__bit { font: 700 12px var(--mono); text-anchor: middle; }
+.nodo { cursor: default; transition: opacity .2s; }
+.nodo--hoja { cursor: pointer; }
+.nodo circle, .nodo rect { fill: var(--superficie-2); stroke: var(--tinta-suave); stroke-width: 1.5; transition: fill .2s, stroke .2s; }
+.nodo--hoja rect { fill: var(--acento-suave); stroke: var(--acento); }
+.nodo__texto { font: 700 13px var(--mono); text-anchor: middle; fill: var(--tinta); pointer-events: none; }
+.nodo__frecuencia { font: 600 9px var(--fuente); text-anchor: middle; fill: var(--tinta-suave); pointer-events: none; }
+.nodo--hoja:hover rect, .nodo--hoja:focus-visible rect { stroke-width: 3; }
+.nodo:focus-visible { outline: none; }
+.arbol--con-camino .nodo:not(.nodo--camino), .arbol--con-camino .arista:not(.arista--camino) { opacity: .22; }
+.nodo--camino circle, .nodo--camino rect { fill: var(--camino); stroke: var(--camino); }
+.nodo--camino .nodo__texto, .nodo--camino .nodo__frecuencia { fill: #fff; }
+.arista--camino line { stroke: var(--camino); stroke-width: 4; }
+
+.grafica { margin: 1rem 0 0; }
+.grafica figcaption { font-size: .85rem; color: var(--tinta-suave); margin-bottom: .4rem; }
+.grafica__barras { display: flex; align-items: flex-end; gap: 3px; height: 150px; padding: .3rem; border: 1px solid var(--linea); border-radius: var(--radio-sm); }
+.barra { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; }
+.barra__columna { width: 100%; border-radius: 4px 4px 0 0; background: color-mix(in srgb, var(--acento-2) calc((1 - var(--tono)) * 100%), var(--camino)); }
+.barra__etiqueta { font: 600 10px var(--mono); color: var(--tinta-suave); }
+.grafica__escala { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--tinta-suave); margin-top: .35rem; }
+.grafica__degradado { flex: 0 0 80px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--acento-2), var(--camino)); }
