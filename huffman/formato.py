@@ -23,6 +23,11 @@ CAMPOS_FIJOS = "<4sBQQB32sH"
 TAMANO_FIJO = struct.calcsize(CAMPOS_FIJOS)  # 56 bytes
 
 
+def tamano_hfa(nombre: str, num_simbolos: int, total_bits: int) -> int:
+    """Tamaño exacto del .hfa sin generarlo: campos fijos + nombre + tabla + bits empaquetados."""
+    return TAMANO_FIJO + len(nombre.encode("utf-8")) + 2 + 5 * num_simbolos + (total_bits + 7) // 8
+
+
 def escribir_hfa(nombre, tamano_original, sha256, frecuencias, datos, total_bits, bits_ultimo_byte) -> bytes:
     """Arma el contenido completo del archivo .hfa."""
     nombre_bytes = nombre.encode("utf-8")

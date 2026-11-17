@@ -133,18 +133,30 @@ def camino_a_simbolo(raiz, simbolo: int) -> tuple[set, set]:
     return set(ids), set(zip(ids, ids[1:]))
 
 
+def ids_subarbol(raiz) -> set:
+    """id() de todos los nodos de un subárbol (para resaltar la unión del paso actual)."""
+    ids, pendientes = set(), [raiz] if raiz is not None else []
+    while pendientes:
+        nodo = pendientes.pop()
+        ids.add(id(nodo))
+        if not nodo.es_hoja():
+            pendientes += [nodo.izquierdo, nodo.derecho]
+    return ids
+
+
 def arbol_dot(raices, camino=(set(), set()), nuevo=None) -> str:
     """Código DOT (Graphviz) de uno o varios árboles, listo para st.graphviz_chart.
 
     - raices: un nodo o una lista de nodos (el "bosque" de la cola de prioridad).
     - camino: (nodos, aristas) a resaltar, como los regresa camino_a_simbolo.
-    - nuevo: nodo recién creado en la unión del paso actual (se pinta distinto).
+    - nuevo: nodo recién creado en la unión del paso actual; se pinta él y todo su subárbol.
     """
     if raices is None:
         raices = []
     elif not isinstance(raices, (list, tuple)):
         raices = [raices]
     nodos_camino, aristas_camino = camino
+    ids_nuevo = ids_subarbol(nuevo) if nuevo is not None else set()
     lineas = [
         "digraph Huffman {",
         '  graph [rankdir=TB, nodesep=0.25, ranksep=0.45];',
@@ -161,7 +173,7 @@ def arbol_dot(raices, camino=(set(), set()), nuevo=None) -> str:
         else:
             etiqueta = str(nodo.frecuencia)
             forma, color = "circle", "#e8eefc"
-        if nuevo is not None and nodo is nuevo:
+        if id(nodo) in ids_nuevo:
             color = "#fff3b0"
         if id(nodo) in nodos_camino:
             color = "#ffb3b3"
@@ -171,6 +183,8 @@ def arbol_dot(raices, camino=(set(), set()), nuevo=None) -> str:
                 dibujar(hijo)
                 resaltada = (id(nodo), id(hijo)) in aristas_camino
                 estilo = ', color="#d9534f", penwidth=2.2, fontcolor="#d9534f"' if resaltada else ""
+                if not resaltada and id(nodo) in ids_nuevo:  # unión recién hecha
+                    estilo = ', color="#15803d", penwidth=2.2'
                 lineas.append(f'  {nombre} -> n{id(hijo)} [label="{bit}"{estilo}];')
 
     for raiz in raices:
