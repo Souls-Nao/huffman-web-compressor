@@ -51,12 +51,16 @@ npm test             # 43 pruebas: núcleo, módulos, integración y compatibili
 npm run evidencias   # regenera ../evidencias/RESULTADOS.md
 ```
 
-Versión Python de referencia (Streamlit): `pip install -r requirements.txt && streamlit run app.py` y `python -m unittest`.
+Versión Python (Streamlit): `pip install -r requirements.txt && streamlit run app.py` y `python -m unittest`. Tiene las mismas secciones que la versión JS: entrada (archivo, **Gutenberg** o texto escrito), construcción **paso a paso**, **árbol gráfico** con el camino de un símbolo, bits por símbolo, inspector del `.hfa` y descompresión con SHA-256.
 
 ### Publicar (gratis)
 1. **Proxy de Gutenberg** (Cloudflare Workers, plan gratuito): `cd web && npx wrangler deploy proxy/worker.js --name huffman-gutenberg --compatibility-date 2026-01-01`.
 2. Poner la URL resultante en `web/src/modules/input/config.js` (`GUTENBERG_PROXY`).
 3. En GitHub: *Settings → Pages → Source: GitHub Actions*. El flujo `.github/workflows/pages.yml` publica `web/` en cada merge a `main`.
+
+### Streamlit: despliegue y proxy de Gutenberg
+- **Despliegue.** Streamlit Community Cloud vuelve a desplegar cuando hay un push a la rama configurada en *App → Settings* (normalmente `main`) y ejecuta el *Main file path* (`app.py`). Si una mejora está en otra rama, no aparece hasta que se hace merge a esa rama.
+- **Proxy.** Si gutenberg.org está en mantenimiento o bloquea la IP del servidor, la búsqueda falla con un mensaje claro y las pestañas *Subir .txt* y *Escribir un texto* siguen funcionando. Para rodear el bloqueo, en *Settings → Secrets* (o en `.streamlit/secrets.toml`, ver `.streamlit/secrets.toml.example`) define `GUTENBERG_PROXY_URL` con la URL del Worker de `web/proxy/worker.js` (el mismo de la versión JS) y/o `GUTENBERG_HTTP_PROXY` con un proxy HTTP(S). También se leen como variables de entorno. Con proxy inverso, si este falla se intenta gutenberg.org directo.
 
 ## Guía de uso
 1. **Entrada.** Sube un `.txt`, escribe un texto (por ejemplo `abracadabra`) o busca un libro y pulsa *Usar este libro*.
