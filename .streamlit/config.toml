@@ -1,0 +1,4 @@
+# Tema de la app: mismo color de acento que la versión web en JavaScript (web/src/styles/tokens.css).
+# No se fija "base": Streamlit sigue el modo claro/oscuro de la persona.
+[theme]
+primaryColor = "#4f46e5"

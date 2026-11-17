@@ -181,7 +181,7 @@ class PasosYArbol(unittest.TestCase):
     def test_dot_de_un_bosque_y_nodo_nuevo(self):
         paso = self.vista["pasos"][0]
         dot = visual.arbol_dot(paso["cola"], nuevo=paso["padre"])
-        self.assertEqual(dot.count("#fff3b0"), 1)
+        self.assertEqual(dot.count("#fff3b0"), 3)  # el nodo nuevo y sus dos hojas
 
     def test_camino_de_simbolo_inexistente_es_vacio(self):
         self.assertEqual(visual.camino_a_simbolo(self.vista["raiz"], 0), (set(), set()))

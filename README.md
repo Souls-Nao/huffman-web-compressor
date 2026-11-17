@@ -51,7 +51,7 @@ npm test             # 43 pruebas: núcleo, módulos, integración y compatibili
 npm run evidencias   # regenera ../evidencias/RESULTADOS.md
 ```
 
-Versión Python (Streamlit): `pip install -r requirements.txt && streamlit run app.py` y `python -m unittest`. Tiene las mismas secciones que la versión JS: entrada (archivo, **Gutenberg** o texto escrito), construcción **paso a paso**, **árbol gráfico** con el camino de un símbolo, bits por símbolo, inspector del `.hfa` y descompresión con SHA-256.
+Versión Python (Streamlit): `pip install -r requirements.txt && streamlit run app.py` y `python -m unittest`. Tiene las mismas secciones que la versión JS: entrada (archivo, **Gutenberg** o texto escrito), construcción **paso a paso**, **árbol gráfico** con el camino de un símbolo, bits por símbolo, inspector del `.hfa` y descompresión con SHA-256. El aspecto (cabecera con barra de flujo, fichas de la cola, bits coloreados, barras comparativas) está en `huffman/ui.py` y el tema en `.streamlit/config.toml`.
 
 ### Publicar (gratis)
 1. **Proxy de Gutenberg** (Cloudflare Workers, plan gratuito): `cd web && npx wrangler deploy proxy/worker.js --name huffman-gutenberg --compatibility-date 2026-01-01`.
