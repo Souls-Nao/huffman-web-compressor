@@ -1,1 +1,8 @@
-/* STUB del paquete 0: estilos de input (los reemplaza su dueno). */
+.soltar { display: grid; gap: .3rem; justify-items: center; text-align: center; padding: 2rem 1rem; border: 2px dashed var(--linea); border-radius: var(--radio); cursor: pointer; transition: border-color .15s, background .15s; }
+.soltar:hover, .soltar--sobre, .soltar:focus-visible { border-color: var(--acento); background: var(--acento-suave); }
+.entrada__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: .6rem; }
+.entrada__actual { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem; padding: .8rem 1rem; border-radius: var(--radio-sm); background: var(--ok-fondo); border: 1px solid var(--ok); }
+.buscador { display: flex; gap: .5rem; flex-wrap: wrap; }
+.buscador input { flex: 1 1 260px; }
+.libros { list-style: none; margin: .5rem 0 0; padding: 0; display: grid; gap: .5rem; max-height: 360px; overflow: auto; }
+.libro { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .6rem .9rem; border: 1px solid var(--linea); border-radius: var(--radio-sm); background: var(--superficie); }
